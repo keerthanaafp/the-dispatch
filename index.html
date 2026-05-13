@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Dispatch — Weekly Product Updates</title>
+<meta name="description" content="A weekly chronicle of what shipped, what improved, and what's coming next." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Animated grain + gradient backdrop -->
+<div class="backdrop">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+  <div class="grain"></div>
+</div>
+
+<!-- Floating navigator -->
+<nav class="nav-pill" id="navPill">
+  <div class="nav-mark">
+    <span class="nav-bolt">⚡</span>
+    <span class="nav-brand">The Dispatch</span>
+  </div>
+  <div class="nav-divider"></div>
+  <div class="nav-meta" id="navEditionLabel">Edition 01 · Loading</div>
+  <button class="nav-jump" id="archiveBtn" aria-label="Open archive">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    Archive
+  </button>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="live-dot"></span>
+      <span id="liveLabel">A weekly broadcast from the product team</span>
+    </div>
+    <h1 class="hero-title">
+      The <span class="title-accent"><em>Dispatch</em></span>
+    </h1>
+    <p class="hero-sub">Every week, the shipped, the shifted, and the soon‑to‑come. One scroll, no noise.</p>
+    <div class="hero-meta">
+      <div class="meta-card">
+        <span class="meta-k">Latest</span>
+        <span class="meta-v" id="latestEditionLabel">—</span>
+      </div>
+      <div class="meta-card">
+        <span class="meta-k">Editions</span>
+        <span class="meta-v" id="editionCount">—</span>
+      </div>
+      <div class="meta-card">
+        <span class="meta-k">Updates shipped</span>
+        <span class="meta-v" id="totalUpdates">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M6 1v18m0 0l-5-5m5 5l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </div>
+</header>
+
+<!-- Editions stream -->
+<main id="editionsStream" class="stream"></main>
+
+<!-- Archive overlay -->
+<aside class="archive" id="archivePanel" aria-hidden="true">
+  <div class="archive-shade" id="archiveShade"></div>
+  <div class="archive-panel">
+    <div class="archive-header">
+      <span class="archive-eyebrow">Jump to edition</span>
+      <button class="archive-close" id="archiveClose" aria-label="Close archive">×</button>
+    </div>
+    <ol class="archive-list" id="archiveList"></ol>
+  </div>
+</aside>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-mark">⚡ The Dispatch</div>
+    <div class="foot-note">Built for the product team · A new edition lands every week.</div>
+  </div>
+</footer>
+
+<script src="editions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
