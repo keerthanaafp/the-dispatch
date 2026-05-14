@@ -3,11 +3,11 @@
    ============================================================ */
 
 const TYPE_LABELS = {
-  new:       { label: 'NEW',       cls: 't-new' },
+  shipped:   { label: 'SHIPPED',   cls: 't-new' },
   improved:  { label: 'IMPROVED',  cls: 't-improved' },
   fixed:     { label: 'FIXED',     cls: 't-fixed' },
-  coming:    { label: 'COMING',    cls: 't-coming' },
-  milestone: { label: 'MILESTONE', cls: 't-milestone' }
+  next:      { label: 'NEXT',      cls: 't-coming' },
+  note:      { label: 'NOTE',      cls: 't-milestone' }
 };
 
 const SIZE_TO_CLASS = {
@@ -20,9 +20,9 @@ const SIZE_TO_CLASS = {
 
 /* ---------- Card render ---------- */
 function renderCard(card) {
-  const type = TYPE_LABELS[card.type] || TYPE_LABELS.new;
+  const type = TYPE_LABELS[card.type] || TYPE_LABELS.shipped;
   const sizeClass = SIZE_TO_CLASS[card.size] || 'size-md';
-  const milestoneClass = card.type === 'milestone' ? ' is-milestone' : '';
+  const milestoneClass = card.type === 'note' ? ' is-milestone' : '';
   const placeholderClass = card.isPlaceholder ? ' is-placeholder' : '';
 
   const el = document.createElement('article');
@@ -60,14 +60,16 @@ function renderEdition(edition, index, total) {
   sec.id = edition.id;
   sec.dataset.number = number;
 
+  const weekNum = (edition.week || '').replace(/\D/g, '').padStart(2, '0') || number;
+
   sec.innerHTML = `
     <div class="edition-head">
-      <div class="edition-number">№${number}</div>
+      <div class="edition-number"><span class="num-prefix">W</span>${weekNum}</div>
       <div class="edition-meta-row">
         <div class="edition-tags">
-          ${edition.isLatest ? '<span class="edition-tag live"><span class="live-dot" style="width:6px;height:6px;background:currentColor;box-shadow:0 0 0 3px rgba(184,255,92,0.18);"></span>&nbsp;LIVE</span>' : ''}
-          <span class="edition-tag">${edition.volume}</span>
-          <span class="edition-tag">${edition.month} · ${edition.week}</span>
+          ${edition.isLatest ? '<span class="edition-tag live"><span class="live-dot" style="width:6px;height:6px;background:currentColor;box-shadow:0 0 0 3px rgba(184,255,92,0.18);"></span>&nbsp;THIS WEEK</span>' : ''}
+          <span class="edition-tag">${edition.month} · ${edition.year}</span>
+          <span class="edition-tag">Entry №${number}</span>
         </div>
         <h2 class="edition-headline">${edition.headline}</h2>
         <span class="edition-dates">${edition.dateRange}</span>
@@ -93,7 +95,7 @@ function renderArchive(editions) {
     const li = document.createElement('li');
     li.className = 'archive-item';
     li.innerHTML = `
-      <div class="archive-item-num">№${number}${ed.isLatest ? ' · LIVE' : ''}</div>
+      <div class="archive-item-num">№${number}${ed.isLatest ? ' · THIS WEEK' : ''}</div>
       <div class="archive-item-title">${stripEm(ed.headline)}</div>
       <div class="archive-item-date">${ed.dateRange}</div>
     `;
@@ -121,7 +123,7 @@ function fillHeroMeta(editions) {
   document.getElementById('totalUpdates').textContent = String(totalUpdates).padStart(2, '0');
   document.getElementById('latestEditionLabel').textContent = `${latest.month} · ${latest.week}`;
   document.getElementById('navEditionLabel').textContent =
-    `Edition ${String(total).padStart(2, '0')} · ${latest.month} ${latest.week}`;
+    `${latest.week} · ${latest.month} ${latest.year}`;
 }
 
 /* ---------- Scroll reveal ---------- */

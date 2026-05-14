@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Dispatch — Weekly Product Updates</title>
-<meta name="description" content="A weekly chronicle of what shipped, what improved, and what's coming next." />
+<title>Field Notes — Internal Product Updates</title>
+<meta name="description" content="Internal weekly product updates from the team." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -24,14 +24,14 @@
 <!-- Floating navigator -->
 <nav class="nav-pill" id="navPill">
   <div class="nav-mark">
-    <span class="nav-bolt">⚡</span>
-    <span class="nav-brand">The Dispatch</span>
+    <span class="nav-bolt" aria-hidden="true"></span>
+    <span class="nav-brand">Field Notes</span>
   </div>
   <div class="nav-divider"></div>
-  <div class="nav-meta" id="navEditionLabel">Edition 01 · Loading</div>
+  <div class="nav-meta" id="navEditionLabel">Week 02 · Loading</div>
   <button class="nav-jump" id="archiveBtn" aria-label="Open archive">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    Archive
+    All weeks
   </button>
 </nav>
 
@@ -40,23 +40,23 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <span class="live-dot"></span>
-      <span id="liveLabel">A weekly broadcast from the product team</span>
+      <span id="liveLabel">Internal · Updated weekly</span>
     </div>
     <h1 class="hero-title">
-      The <span class="title-accent"><em>Dispatch</em></span>
+      Field <span class="title-accent"><em>Notes</em></span>
     </h1>
-    <p class="hero-sub">Every week, the shipped, the shifted, and the soon‑to‑come. One scroll, no noise.</p>
+    <p class="hero-sub">What we shipped this week. What's next. Updated every Friday.</p>
     <div class="hero-meta">
       <div class="meta-card">
-        <span class="meta-k">Latest</span>
+        <span class="meta-k">This week</span>
         <span class="meta-v" id="latestEditionLabel">—</span>
       </div>
       <div class="meta-card">
-        <span class="meta-k">Editions</span>
+        <span class="meta-k">Weeks logged</span>
         <span class="meta-v" id="editionCount">—</span>
       </div>
       <div class="meta-card">
-        <span class="meta-k">Updates shipped</span>
+        <span class="meta-k">Updates total</span>
         <span class="meta-v" id="totalUpdates">—</span>
       </div>
     </div>
@@ -75,7 +75,7 @@
   <div class="archive-shade" id="archiveShade"></div>
   <div class="archive-panel">
     <div class="archive-header">
-      <span class="archive-eyebrow">Jump to edition</span>
+      <span class="archive-eyebrow">Jump to a week</span>
       <button class="archive-close" id="archiveClose" aria-label="Close archive">×</button>
     </div>
     <ol class="archive-list" id="archiveList"></ol>
@@ -84,8 +84,8 @@
 
 <footer class="foot">
   <div class="foot-inner">
-    <div class="foot-mark">⚡ The Dispatch</div>
-    <div class="foot-note">Built for the product team · A new edition lands every week.</div>
+    <div class="foot-mark"><span class="foot-bolt" aria-hidden="true"></span> Field Notes</div>
+    <div class="foot-note">Internal · Product team · New entry every Friday</div>
   </div>
 </footer>
 
